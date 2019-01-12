@@ -11,6 +11,7 @@ It receives messages from **Service-a** and adds amount to the balance according
 4. [RabbitMQ Server](https://www.rabbitmq.com/download.html)
 5. [Docker](https://www.docker.com/get-started) for your system.
 - Follow given instructions to set up every program. I recommend using default settings.
+----
 - Open terminal and pull Docker images for RabbitMQ and MySQL using commands:
     `docker pull rabbitmq` and `docker pull mysql`. 
 - Run Docker containers from those images by using commands:
@@ -19,6 +20,9 @@ docker run -p 5671:5671 --hostname rabbitmq --name rabbitmq rabbitmq:latest
 
 docker run -p 3307:3306 --name mysql_container -e MYSQL_ROOT_HOST=% -e MYSQL_ROOT_PASSWORD=Jh72071G -e MYSQL_DATABASE=account -d mysql:latest
 ```
+
+- By doing this, you have run a RabbitMQ container named "rabbitmq" and MySQL container named "msql_container". You can choose your own names and ports for these containers.
+----
 - Clone this project to your PC and open it in an IDEA. I recommmend opening both services separately.
 - 
 >Go to *...\service-a\src\main\resources\application.properties* file and write down your own username and password in fields
