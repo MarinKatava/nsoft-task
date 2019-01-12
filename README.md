@@ -21,10 +21,9 @@ docker run -p 5671:5671 --hostname rabbitmq --name rabbitmq rabbitmq:latest
 docker run -p 3307:3306 --name mysql_container -e MYSQL_ROOT_HOST=% -e MYSQL_ROOT_PASSWORD=Jh72071G -e MYSQL_DATABASE=account -d mysql:latest
 ```
 
-- By doing this, you have run a RabbitMQ container named "rabbitmq" and MySQL container named "msql_container". You can choose your own names and ports for these containers.
+- By doing this, you have run a RabbitMQ container named "rabbitmq" and MySQL container named "msql_container". You can choose your own names and ports for these containers as well as password and database name for MySQL container.
+- Run command `docker inspect rabbitmq`, find the IP address of the host and write it down somewhere.
 ----
 - Clone this project to your PC and open it in an IDEA. I recommmend opening both services separately.
-- 
->Go to *...\service-a\src\main\resources\application.properties* file and write down your own username and password in fields
-*spring.datasource.username* and 
-*spring.datasource.password* and create your own *spring.datasource.url*
+- Let's edit `application.properties` file in both services.
+> **Service-a:** go to `*...\service-a\src\main\resources\application.properties*` file and choose your own server port. In the field `spring.rabbitmq.host` write the IP address of the rabbitmq host. I have used default values for other properties.
