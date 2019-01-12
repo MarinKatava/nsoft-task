@@ -12,6 +12,7 @@ It receives messages from **Service-a** and adds amount to the balance according
 5. [Docker](https://www.docker.com/get-started) for your system.
 - Follow given instructions to set up every program. I recommend using default settings.
 ----
+## RabbitMQ and MySQL containers
 - Open terminal and pull Docker images for RabbitMQ and MySQL using commands:
     `docker pull rabbitmq` and `docker pull mysql`. 
 - Run Docker containers from those images by using commands:
@@ -24,7 +25,9 @@ docker run -p 3307:3306 --name mysql_container -e MYSQL_ROOT_HOST=% -e MYSQL_ROO
 - By doing this, you have run a RabbitMQ container named "rabbitmq" and MySQL container named "msql_container". You can choose your own names and ports for these containers as well as password and database name for MySQL container.
 - Run command `docker inspect rabbitmq`, find the IP address of the host and write it down somewhere.
 ----
-- Clone this project to your PC and open it in an IDEA. I recommmend opening both services separately.
+## Service-a and Service-b containers
+
+- Clone this project to your PC and open it in an IDEA. I recommend opening both services separately.
 - Let's edit `application.properties` file in both services.
 
 **Service-a:** go to `*...\service-a\src\main\resources\application.properties*` file and choose your own server port. In the field `spring.rabbitmq.host` write the IP address of the rabbitmq host. I have used default values for other properties.
@@ -55,7 +58,7 @@ You can check if all containers are running by running command:
 `docker ps -a`
 
 ----
-
+## Final steps
 If everything is fine, open MySQL Workbench and add new connection. Use host `127.0.0.1` and port that you have defined before. I have used port 3307.
 
 Open **Postman** and write down url (for example *http://localhost:8081/message* ), create JSON body ({
