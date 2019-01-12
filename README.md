@@ -50,3 +50,19 @@ docker build . -t service-b
 docker run --name service-b --link mysql_container -d service-b
 ```
 Docker image and container for service-b are done. Service-b container is linked to mysql_container.
+
+You can check if all containers are running by running command:
+`docker ps -a`
+
+----
+
+If everything is fine, open MySQL Workbench and add new connection. Use host `127.0.0.1` and port that you have defined before. I have used port 3307.
+
+Open **Postman** and write down url (for example *http://localhost:8081/message* ), create JSON body ({
+"amount":"1",
+"currency":"EUR"
+}), make sure that you have selected POST request and click *Send* button.
+
+You should get corresponding response from server.
+
+Check your database inside MySQL Workbench and you should see corresponding data inside.
