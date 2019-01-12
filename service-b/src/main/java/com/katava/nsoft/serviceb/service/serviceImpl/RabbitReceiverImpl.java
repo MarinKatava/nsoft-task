@@ -39,7 +39,7 @@ public class RabbitReceiverImpl implements RabbitReceiver {
     }
 
     private Double getBalance() {
-        Account account = accountRepo.findTopByOrderByIdDesc(); //radi za dodavanje azuriranih podataka u novi redak
+        Account account = accountRepo.findTopByOrderByIdDesc();
         return account.getBalance();
     }
 }
