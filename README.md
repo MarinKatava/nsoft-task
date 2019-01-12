@@ -26,4 +26,11 @@ docker run -p 3307:3306 --name mysql_container -e MYSQL_ROOT_HOST=% -e MYSQL_ROO
 ----
 - Clone this project to your PC and open it in an IDEA. I recommmend opening both services separately.
 - Let's edit `application.properties` file in both services.
-> **Service-a:** go to `*...\service-a\src\main\resources\application.properties*` file and choose your own server port. In the field `spring.rabbitmq.host` write the IP address of the rabbitmq host. I have used default values for other properties.
+
+**Service-a:** go to `*...\service-a\src\main\resources\application.properties*` file and choose your own server port. In the field `spring.rabbitmq.host` write the IP address of the rabbitmq host. I have used default values for other properties.
+
+Go to the terminal inside your IDEA and do `mvn clean install`. By doing this you will get *.jar* file that is neccesary for creating docker image.
+
+Run
+
+**Service-b:** go to `*...\service-b\src\main\resources\application.properties*` file and copy the basic rabbitmq properties from service-a. Define your url, username and password in MySQL properties.
