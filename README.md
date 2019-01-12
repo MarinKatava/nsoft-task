@@ -41,10 +41,12 @@ Docker image and container for service-a are done. Container is linked to rabbit
 
 **Service-b:** go to `*...\service-b\src\main\resources\application.properties*` file and copy the basic rabbitmq properties from service-a. Define your url, username and password in MySQL properties.
 
-Run commands:
+Go to the terminal and do `mvn clean install`.
+
+Run next commands in terminal:
 ```
 docker build . -t service-b
 
 docker run --name service-b --link mysql_container -d service-b
 ```
-Docker image and container for service-a are done. Service-b container is linked to mysql_container.
+Docker image and container for service-b are done. Service-b container is linked to mysql_container.
