@@ -64,7 +64,7 @@ You can check if all containers are running by running command:
 ## Final steps
 If everything is fine, open MySQL Workbench and add new connection. Use host `127.0.0.1` and port that you have defined before. I have used port 3307.
 
-Open **Postman** and write down url (for example *http://localhost:8081/message* ), create JSON body ({
+Open **Postman** and write down url (for example *http://localhost:8081/message* ), create JSON body (for example {
 "amount":"1",
 "currency":"EUR"
 }), make sure that you have selected POST request and click *Send* button.
