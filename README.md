@@ -1,7 +1,10 @@
-# nsoft-task
+# Nsoft-task
 >This is simple spring boot project which consists of two services. **Service-a** sends messages to **Service-b** over the RabbitMQ. 
 **Service-b** consumes messages from RabbitMQ and tracks a balance containing money in MySQL database. 
 It receives messages from **Service-a** and adds amount to the balance accordingly.
+
+>Service-a, service-b, RabbitMQ and MySQL database are put in separate Docker containers which communicate with each other.
+
 ----
 ## Getting started
 - Before we start, you need to install these programs on your PC:
