@@ -7,12 +7,13 @@ public class RoundAmount
 {
     private Double amount;
 
-
-    public RoundAmount(Double amount) {
+    public RoundAmount(Double amount)
+    {
         this.amount = new BigDecimal(amount).setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 
-    public Double getAmount() {
+    public Double getAmount()
+    {
         return amount * 100;
     }
 }

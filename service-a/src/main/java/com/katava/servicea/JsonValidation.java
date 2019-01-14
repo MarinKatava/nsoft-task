@@ -1,20 +1,29 @@
 package com.katava.servicea;
 
-import com.katava.servicea.model.HttpMessage;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 
-public class JsonValidation {
+import com.katava.servicea.model.HttpMessage;
 
-    public ResponseEntity validate(HttpMessage httpMessage) {
+@Component
+public class JsonValidation
+{
 
-        if (httpMessage.getAmount() == null || httpMessage.getCurrency() == null) {
+    public ResponseEntity validate(HttpMessage httpMessage)
+    {
+
+        if (httpMessage.getAmount() == null || httpMessage.getCurrency() == null)
+        {
             return new ResponseEntity<>("Define both, amount and currency", HttpStatus.BAD_REQUEST);
-
-        } else if (httpMessage.getAmount() > 100000000 || httpMessage.getAmount() < -100000000 || !httpMessage.getCurrency()
-                .equals("EUR")) {
+        }
+        else if (httpMessage.getAmount() > 100000000 || httpMessage.getAmount() < -100000000 || !httpMessage
+            .getCurrency().equals("EUR"))
+        {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-        } else {
+        }
+        else
+        {
             return null;
         }
     }

@@ -1,33 +1,35 @@
 package com.katava.servicea.controller;
 
-import com.katava.servicea.JsonValidation;
-import com.katava.servicea.service.RabbitSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import com.katava.servicea.JsonValidation;
 import com.katava.servicea.RoundAmount;
 import com.katava.servicea.model.HttpMessage;
-import com.katava.servicea.service.serviceImpl.RabbitSenderImpl;
+import com.katava.servicea.service.RabbitSender;
 
 @org.springframework.web.bind.annotation.RestController
-public class RestController {
-    RabbitSender rabbitSender;
+public class RestController
+{
+    private final RabbitSender rabbitSender;
+    private final JsonValidation jsonValidation;
 
     @Autowired
-    public RestController(RabbitSender rabbitSender) {
+    public RestController(RabbitSender rabbitSender, JsonValidation jsonValidation)
+    {
         this.rabbitSender = rabbitSender;
+        this.jsonValidation = jsonValidation;
     }
 
     @PostMapping(value = "/message", consumes = "application/json")
-    public ResponseEntity httpMessage(@RequestBody HttpMessage httpMessage) {
-
-        JsonValidation jsonValidation = new JsonValidation();
-
+    public ResponseEntity httpMessage(@RequestBody HttpMessage httpMessage)
+    {
         ResponseEntity entity = jsonValidation.validate(httpMessage);
-        if (entity != null) {
+        if (entity != null)
+        {
             return entity;
         }
 
